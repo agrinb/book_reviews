@@ -1,0 +1,26 @@
+<h1>Listing reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+
+      <th>Review</th>
+
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.description %></td>
+        <td><td>
+        <td><%= review.rating %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_book_review_path %>

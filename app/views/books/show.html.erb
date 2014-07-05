@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @book.year %>
+</p>
+
+<h4>Listing reviews</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Review</th>
+
+      <th>Rating</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.reviews.each do |review| %>
+      <tr>
+        <td><%= review.description %></td>
+        <td><td>
+        <td><%= review.rating %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %> |
+<%= link_to 'New Review', new_book_review_path(@book) %>
