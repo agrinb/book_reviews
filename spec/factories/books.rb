@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :book do
-    title "MyString"
-    author "MyString"
-    year 1
+    sequence(:title) { |n| "The Tipping Point #{n}" }
+    author "Malcolm Gladwell"
+    year 2000
   end
 end

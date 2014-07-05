@@ -12,16 +12,11 @@ class ReviewsController < ApplicationController
     @book = Book.find(params[:book_id])
     @review = Review.new(review_params)
     @review.book_id = @book.id
-
-    respond_to do |format|
       if @review.save
-        format.html { redirect_to book_reviews_path, notice: 'Review was successfully created.' }
-
+        redirect_to @book, notice: 'Review was successfully created.'
       else
-        format.html { render :new }
-
+        render :new
       end
-    end
   end
 
   private

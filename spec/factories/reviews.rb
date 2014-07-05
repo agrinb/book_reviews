@@ -2,6 +2,9 @@
 
 FactoryGirl.define do
   factory :review do
-    description "MyString"
+    sequence(:description) { |n| "This is a good book #{n}" }
+    rating "5"
+
+    book
   end
 end
