@@ -13,9 +13,12 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.book_id = @book.id
       if @review.save
-        redirect_to @book, notice: 'Review was successfully created.'
+        flash[:notice] = "Review was successfully created."
+        redirect_to @book
       else
+        flash[:alert] = "Sorry, your review could not be saved"
         render :new
+
       end
   end
 
