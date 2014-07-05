@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def new
     @book = Book.find(params[:book_id])
+    #wanted to see if this works, it appears it does
     @review = @book.reviews.build
   end
 
@@ -18,7 +19,6 @@ class ReviewsController < ApplicationController
       else
         flash[:alert] = "Sorry, your review could not be saved"
         render :new
-
       end
   end
 
