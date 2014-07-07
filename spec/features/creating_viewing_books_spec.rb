@@ -20,7 +20,7 @@ feature 'user creates a book', %Q{
 
     visit 'books/new'
     fill_in 'Title', with: book.title
-    fill_in 'Author', with: 'Malcom Gladwell'
+    fill_in 'Author', with: book.author
     fill_in 'Year', with: '2000'
     click_button 'Create Book'
 
