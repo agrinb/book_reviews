@@ -5,22 +5,17 @@ feature 'user creates a book', %Q{
 } do
 
   scenario 'user submits book' do
-
-
-
     visit 'books/new'
     fill_in 'Title', with: 'Outliers'
     fill_in 'Author', with: 'Malcom Gladwell'
     fill_in 'Year', with: '2000'
     click_button 'Create Book'
 
-
     expect(page).to have_content 'Outliers'
     expect(page).to have_content 'Gladwell'
   end
 
   scenario 'user submits a duplicate book' do
-
     book = FactoryGirl.create(:book)
 
     visit 'books/new'
@@ -29,20 +24,15 @@ feature 'user creates a book', %Q{
     fill_in 'Year', with: '2000'
     click_button 'Create Book'
 
-
-
     expect(page).to have_content 'Your book could not be saved.'
   end
 
   scenario 'user leaves out required field book' do
-
     visit 'books/new'
     fill_in 'Title', with: ''
     fill_in 'Author', with: 'Malcom Gladwell'
     fill_in 'Year', with: '2000'
     click_button 'Create Book'
-
-
 
     expect(page).to have_content 'Your book could not be saved.'
   end
