@@ -1,13 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
-
   def new
     @book = Book.find(params[:book_id])
     #wanted to see if this works, it appears it does
     @review = @book.reviews.build
   end
-
 
   def create
     @book = Book.find(params[:book_id])
