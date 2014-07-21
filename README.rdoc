@@ -1,4 +1,4 @@
 == README
 
-SimpleRails app, used scafffolding to quickly set up Capybara tests.
+Simple Rails app, used scafffolding to quickly set up Capybara tests.
 
