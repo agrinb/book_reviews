@@ -16,16 +16,15 @@ class BooksController < ApplicationController
   def edit
   end
 
-
   def create
-    @book = Book.find_or_create_by(book_params)
-      if @book.save
-        flash[:notice] = "Your book was saved."
-        redirect_to @book
-      else
-        flash[:alert] = "Your book could not be saved."
-        render :new
-      end
+    @book = Book.new(book_params)
+    if @book.save
+      flash[:notice] = "Your book was saved."
+      redirect_to @book
+    else
+      flash[:alert] = "Your book could not be saved."
+      render :new
+    end
   end
 
   def update
@@ -39,7 +38,6 @@ class BooksController < ApplicationController
     end
   end
 
-
   def destroy
     @book.destroy
     respond_to do |format|
@@ -48,12 +46,12 @@ class BooksController < ApplicationController
   end
 
   private
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
-      params.require(:book).permit(:title, :author, :year)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def book_params
+    params.require(:book).permit(:title, :author, :year)
+  end
 end
